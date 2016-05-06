@@ -13,6 +13,9 @@ matrix:
 before_install:
   - "if [[ $TRAVIS_GO_VERSION == 1.6 ]]; then go get -v github.com/golang/lint/golint; fi"
 
+install:
+  - go get -v -t ./...
+
 script:
   - go test -race -cpu 1,4 -v
   - go test -race -v -tags appengine
